@@ -49,17 +49,36 @@ extension NFCManager {
  * NFC NDEF Reader Session Delegate (message)
  */
 extension NFCManager: NFCNDEFReaderSessionDelegate {
+   /**
+    * Reads an NDEF message
+    * - Note: Will be invoked when the session finds a new tag
+    * - Note: Each time the reader session retrieves a new NDEF message, the session sends the message to the delegate by calling the readerSession(_:didDetectNDEFs:) method. This is the app’s opportunity to do something useful with the data. For instance, the sample app stores the message so the user can view it later.
+    * - Parameter messages: Get an array of detected messages, each of which can contain one or more records describing a single piece of data.
+    */
    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-      // Not used
+      messages.flatMap { $0.records }.forEach { record in
+         if let string = String(data: record.payload, encoding: .ascii) {
+            print(string)
+         }
+      }
    }
+   /**
+    * Becomes invalid due to ending the session or encountering an error
+    * - Note: Will be invoked when an error has occurred or the scanning session has ended.
+    */
    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+      // Check the invalidation reason from the returned error.
       if let error = error as? NFCReaderError,
+         // Show an alert when the invalidation reason is not because of a
+         // successful read during a single-tag read session, or because the
+         // user canceled a multiple-tag read session from the UI or
+         // programmatically using the invalidate method call.
+         // - Fixme: ⚠️️ use .contains here
          error.code != .readerSessionInvalidationErrorFirstNDEFTagRead &&
             error.code != .readerSessionInvalidationErrorUserCanceled {
          completion?(.failure(NFCError.invalidated(message: error.localizedDescription)))
       }
-      
-      self.session = nil
+      self.session = nil // To read new tags, a new session instance is required.
       completion = nil
    }
 }
@@ -67,6 +86,9 @@ extension NFCManager: NFCNDEFReaderSessionDelegate {
  * Read - alert
  */
 extension NFCManager {
+   /**
+    * read
+    */
    func readLocation(from tag: NFCNDEFTag) {
       // 1
       tag.readNDEF { message, error in

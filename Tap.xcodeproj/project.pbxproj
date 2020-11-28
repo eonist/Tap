@@ -19,6 +19,8 @@
 		F163DEF72572993700849569 /* NFCManager+Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163DEF62572993700849569 /* NFCManager+Write.swift */; };
 		F163DEF92572996700849569 /* NFCManager+Read.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163DEF82572996700849569 /* NFCManager+Read.swift */; };
 		F163DEFC25729D5500849569 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163DEFB25729D5500849569 /* Visitor.swift */; };
+		F163DEFE2572B21B00849569 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163DEFD2572B21B00849569 /* View.swift */; };
+		F163DF002572B23000849569 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163DEFF2572B23000849569 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		F163DEF62572993700849569 /* NFCManager+Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCManager+Write.swift"; sourceTree = "<group>"; };
 		F163DEF82572996700849569 /* NFCManager+Read.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCManager+Read.swift"; sourceTree = "<group>"; };
 		F163DEFB25729D5500849569 /* Visitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
+		F163DEFD2572B21B00849569 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		F163DEFF2572B23000849569 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				F163DED5257290C400849569 /* AppDelegate.swift */,
+				F163DEFF2572B23000849569 /* ViewController.swift */,
+				F163DEFD2572B21B00849569 /* View.swift */,
 				F163DEDE257290C800849569 /* Assets.xcassets */,
 				F163DEE0257290C800849569 /* LaunchScreen.storyboard */,
 				F163DEE3257290C800849569 /* Info.plist */,
@@ -82,8 +88,8 @@
 			children = (
 				F163DEEA2572914A00849569 /* NFCManager.swift */,
 				F163DEF2257298B300849569 /* NFCManager+Action.swift */,
-				F163DEF62572993700849569 /* NFCManager+Write.swift */,
 				F163DEF82572996700849569 /* NFCManager+Read.swift */,
+				F163DEF62572993700849569 /* NFCManager+Write.swift */,
 				F163DEF4257298FC00849569 /* NFCManager+Type.swift */,
 				F163DEFA257299F500849569 /* util */,
 			);
@@ -177,9 +183,11 @@
 				F163DEED257297F700849569 /* NFCError.swift in Sources */,
 				F163DEF92572996700849569 /* NFCManager+Read.swift in Sources */,
 				F163DEF12572989200849569 /* Location.swift in Sources */,
+				F163DF002572B23000849569 /* ViewController.swift in Sources */,
 				F163DEF3257298B300849569 /* NFCManager+Action.swift in Sources */,
 				F163DEEB2572914A00849569 /* NFCManager.swift in Sources */,
 				F163DEFC25729D5500849569 /* Visitor.swift in Sources */,
+				F163DEFE2572B21B00849569 /* View.swift in Sources */,
 				F163DEEF2572980800849569 /* NFCAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

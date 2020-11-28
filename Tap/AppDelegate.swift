@@ -16,22 +16,5 @@ extension AppDelegate {
       return win
    }
 }
-class ViewController: UIViewController {
-   override func viewDidLoad() {
-      super.viewDidLoad()
-      view = View()
-      view.backgroundColor = .orange
-   }
-   override var prefersStatusBarHidden: Bool { return false }
-}
-class View: UIView {
-   override init(frame: CGRect) {
-      super.init(frame: frame)
-   }
-   /**
-    * Boilerplate
-    */
-   required init?(coder aDecoder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
-   }
-}
+
+

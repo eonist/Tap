@@ -17,17 +17,10 @@ extension NFCManager {
     * }
     */
    static func performAction(_ action: NFCAction, completion: LocationReadingCompletion? = nil) {
-      guard NFCNDEFReaderSession.readingAvailable else {
-         completion?(.failure(NFCError.unavailable))
-         print("NFC is not available on this device")
-         return
-      }
+      guard NFCNDEFReaderSession.readingAvailable else { print("NFC is not available on this device"); completion?(.failure(NFCError.unavailable)); return }
       shared.action = action
       shared.completion = completion
-      shared.session = NFCNDEFReaderSession(
-         delegate: shared.self,
-         queue: nil,
-         invalidateAfterFirstRead: false)
+      shared.session = NFCNDEFReaderSession(delegate: shared.self, queue: nil, invalidateAfterFirstRead: false)
       shared.session?.alertMessage = action.alertMessage
       shared.session?.begin()
    }

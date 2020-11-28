@@ -4,7 +4,9 @@ import CoreNFC
  * Write to tag
  */
 extension NFCManager {
-
+   /**
+    * 
+    */
    func createLocation(_ location: Location, tag: NFCNDEFTag) {
       read(tag: tag) { _ in
          self.updateLocation(location, tag: tag)
