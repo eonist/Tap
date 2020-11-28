@@ -11,6 +11,9 @@ class ViewController: UIViewController {
    }
    override var prefersStatusBarHidden: Bool { return false }
 }
+/**
+ * Event
+ */
 extension ViewController {
    @objc func buttonTouched(sender:UIButton!) {
       beginScanning()
@@ -18,6 +21,11 @@ extension ViewController {
    @objc func writeButtonTouched(sender:UIButton!) {
       beginWrite()
    }
+}
+/**
+ * Action
+ */
+extension ViewController {
    /**
     * read (begin scanning)
     */
@@ -37,7 +45,7 @@ extension ViewController {
          switch result {
          case .success(let value):
             Swift.print("success")
-           _ = value
+            _ = value
          case .failure(let error):
             let alertController = UIAlertController(
                title: "Session Invalidated",
@@ -54,7 +62,7 @@ extension ViewController {
       NFCManager.performAction(.readLocation)
    }
    /**
-    * write
+    * Write
     * - Note: To write to a tag, the sample app starts a new reader session. This session must be active to write an NDEF message to the tag, so this time, invalidateAfterFirstRead is set to false, preventing the session from becoming invalid after reading the tag.
     * - Note: writes to one tag only
     */

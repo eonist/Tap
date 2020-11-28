@@ -9,10 +9,10 @@ extension NFCManager {
     */
    func createLocation(_ location: Location, tag: NFCNDEFTag) {
       read(tag: tag) { _ in
-         self.updateLocation(location, tag: tag)
+         self.write(location, tag: tag)
       }
    }
-   private func updateLocation(_ location: Location, withVisitor visitor: Visitor? = nil, tag: NFCNDEFTag) {
+   private func write(_ location: Location, withVisitor visitor: Visitor? = nil, tag: NFCNDEFTag) {
       // 1
       let alertMessage = "Successfully setup location."
       _ = alertMessage

@@ -8,38 +8,47 @@ extension NFCManager {
     * Detect
     */
    func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
+      
       guard let tag = tags.first, tags.count == 1 else {
-         session.alertMessage = """
-         There are too many tags present. Remove all and then try again.
-         """
+         session.alertMessage = "More than 1 tag is detected. Please remove all tags and try again."
          DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(500)) {
             session.restartPolling()
          }
          return
       }
-      session.connect(to: tag) { error in
+      session.connect(to: tag) { error in // Connect to the found tag and write an NDEF message to it.
          if let error = error {
-            self.handleError(error)
+            self.handleError(error) // Unable to connect to tag.
             return
          }
-         tag.queryNDEFStatus { status, _, error in
+         tag.queryNDEFStatus { (ndefStatus: NFCNDEFStatus, capacity: Int, error: Error?) in
             if let error = error {
                self.handleError(error)
                return
             }
-            switch (status, self.action) {
+            switch (ndefStatus, self.action) {
             case (.notSupported, _):
-               session.alertMessage = "Unsupported tag."
+               session.alertMessage = "Tag is not NDEF compliant."
                session.invalidate()
             case (.readOnly, _):
-               session.alertMessage = "Unable to write to tag."
+               session.alertMessage = "Unable to write to tag. Tag is read only."
                session.invalidate()
+            // - Fixme: ⚠️️ split NFCReader and NFCWriter for simpler API, the bellow action is FML
             case (.readWrite, .setupLocation(let locationName)):
                self.createLocation(Location(name: locationName), tag: tag)
+//               tag.writeNDEF(self.message, completionHandler: { (error: Error?) in
+//                  if nil != error {
+//                     session.alertMessage = "Write NDEF message fail: \(error!)"
+//                  } else {
+//                     session.alertMessage = "Write NDEF message successful."
+//                  }
+//                  session.invalidate()
+//               })
             case (.readWrite, .readLocation):
                self.read(tag: tag)
             default:
-               return
+               session.alertMessage = "Unknown NDEF tag status."
+               session.invalidate()
             }
          }
       }
@@ -62,6 +71,7 @@ extension NFCManager: NFCNDEFReaderSessionDelegate {
          }
       }
    }
+   
    /**
     * Becomes invalid due to ending the session or encountering an error
     * - Note: Will be invoked when an error has occurred or the scanning session has ended.
