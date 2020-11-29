@@ -15,10 +15,10 @@ class ViewController: UIViewController {
  * Event
  */
 extension ViewController {
-   @objc func buttonTouched(sender:UIButton!) {
+   @objc func buttonTouched(sender: UIButton!) {
       beginScanning()
    }
-   @objc func writeButtonTouched(sender:UIButton!) {
+   @objc func writeButtonTouched(sender: UIButton!) {
       beginWrite()
    }
 }
@@ -41,11 +41,14 @@ extension ViewController {
          return
       }
       // move somewhere else
-      NFCManager.shared.completion = { result in
+      NFCReader.shared.scanTag { result in
          switch result {
          case .success(let value):
             Swift.print("success")
-            _ = value
+            NFCReader.shared.read(tag: value.tag, status: value.status) { result in // read
+               let data: Data? = try? result.get()
+               Swift.print("data?.count:  \(String(describing: data?.count))")
+            }
          case .failure(let error):
             let alertController = UIAlertController(
                title: "Session Invalidated",
@@ -57,18 +60,18 @@ extension ViewController {
                self.present(alertController, animated: true, completion: nil)
             }
          }
-         
       }
-      NFCManager.performAction(.readLocation)
    }
    /**
     * Write
     * - Note: To write to a tag, the sample app starts a new reader session. This session must be active to write an NDEF message to the tag, so this time, invalidateAfterFirstRead is set to false, preventing the session from becoming invalid after reading the tag.
     * - Note: writes to one tag only
+    * - Note: "Hold your iPhone near an NDEF tag to write the message."
     */
    func beginWrite() {
-      NFCManager.shared.session = NFCNDEFReaderSession(delegate: NFCManager.shared, queue: nil, invalidateAfterFirstRead: false)
-      NFCManager.shared.session?.alertMessage = "Hold your iPhone near an NDEF tag to write the message."
-      NFCManager.shared.session?.begin()
+      NFCWriter.shared.write(data: .init()) { result in
+         let data: Data? = try? result.get()
+         Swift.print("data.count:  \(String(describing: data?.count))")
+      }
    }
 }
