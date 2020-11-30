@@ -5,6 +5,18 @@ Read / Write over NFC (for sharing small data-sets)
 - Read NFC data
 - Write NFC data
 
+## Example:
+```swift
+NFCReader.shared.read(tag: value.tag, status: value.status) { result in // read
+   let data: Data? = try? result.get()
+   Swift.print("Payload:  \(String(describing: String(data: data!, encoding: .utf8)))") // Hello world
+}
+NFCWriter.shared.write(data: "Hello world".data(using: .utf8)!) { result in
+   let data: Data? = try? result.get()
+   Swift.print("data.count:  \(String(describing: data?.count))")
+}
+```
+
 ## Gotchas:
 - iPhone XS and later support background tag reading.
 - To launch custom apps in background mode use universal links

@@ -47,7 +47,7 @@ extension ViewController {
             Swift.print("success")
             NFCReader.shared.read(tag: value.tag, status: value.status) { result in // read
                let data: Data? = try? result.get()
-               Swift.print("data?.count:  \(String(describing: data?.count))")
+               Swift.print("Payload:  \(String(describing: String(data: data!, encoding: .utf8)))")
             }
          case .failure(let error):
             let alertController = UIAlertController(
@@ -69,7 +69,7 @@ extension ViewController {
     * - Note: "Hold your iPhone near an NDEF tag to write the message."
     */
    func beginWrite() {
-      NFCWriter.shared.write(data: .init()) { result in
+      NFCWriter.shared.write(data: "Hello world".data(using: .utf8)!) { result in
          let data: Data? = try? result.get()
          Swift.print("data.count:  \(String(describing: data?.count))")
       }
