@@ -5,6 +5,7 @@ import CoreNFC
 extension NFCWriter {
    /**
     * Helper
+    * - Fixme: ⚠️️ add doc
     */
    func handleError(_ error: Error, session: NFCNDEFReaderSession?) {
       session?.alertMessage = error.localizedDescription

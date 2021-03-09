@@ -9,6 +9,7 @@ extension NFCWriter {
     * NFCWriter.write(data: .init()) { result in
     *    let data: Data? = try? result.get()
     * }
+    * - Fixme: ⚠️️ add doc
     */
    func write(data: Data, onWriteCompleted: @escaping WriteCompleted) {
       self.onWriteCompleted = onWriteCompleted
@@ -19,6 +20,7 @@ extension NFCWriter {
    }
    /**
     * Read tag
+    * - Fixme: ⚠️️ add doc
     */
    func write(data: Data, tag: NFCNDEFTag, status: NFCNDEFStatus, session: NFCNDEFReaderSession?) {
       switch status {
@@ -37,6 +39,7 @@ extension NFCWriter {
    }
    /**
     * write
+    * - Fixme: ⚠️️ add doc
     */
    func write(data: Data, tag: NFCNDEFTag, session: NFCNDEFReaderSession?) {
       let alertMessage = "Successfully wrote to tag"

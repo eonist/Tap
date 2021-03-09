@@ -1,15 +1,17 @@
 import CoreNFC
 /**
- * NFC NDEF Reader Session Delegate (message)
+ * NFC / NDEF Reader Session Delegate (message)
  */
 extension NFCReader: NFCNDEFReaderSessionDelegate {
    /**
     * Reads an NDEF message
     * - Note: Will be invoked when the session finds a new tag
     * - Note: Each time the reader session retrieves a new NDEF message, the session sends the message to the delegate by calling the readerSession(_:didDetectNDEFs:) method. This is the app’s opportunity to do something useful with the data. For instance, the sample app stores the message so the user can view it later.
-    * - Parameter messages: Get an array of detected messages, each of which can contain one or more records describing a single piece of data.
     * - Note: messages is an array of NFCNDEFMessages, one for each scan we perform before the NFC session becomes invalidated, though in our app, we invalidate the session automatically after the first scan. We only need to worry about one object in the array.
     * - Note: records is an array of NFCNDEFPayloads. This is an array because NDEF cards can contain multiple payloads. For our use, we only will have one payload.
+    * - Parameters:
+    *   - messages: Get an array of detected messages, each of which can contain one or more records describing a single piece of data.
+    *   - session: the nfc session
     */
    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
       // - Fixme: ⚠️️ not supported yet
@@ -23,6 +25,7 @@ extension NFCReader: NFCNDEFReaderSessionDelegate {
    /**
     * Becomes invalid due to ending the session or encountering an error
     * - Note: Will be invoked when an error has occurred or the scanning session has ended.
+    * - Fixme: ⚠️️ add doc
     */
    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
       // Check the invalidation reason from the returned error.

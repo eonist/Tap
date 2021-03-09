@@ -16,5 +16,3 @@ extension AppDelegate {
       return win
    }
 }
-
-

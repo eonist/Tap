@@ -11,6 +11,7 @@ extension NFCReader {
     *    let tag: NFCNDEFTag? = try? result.get().tag
     *    let status: NFCNDEFStatus = try? result.get().status
     * }
+    * - Fixme: ⚠️️ add doc
     */
    func scanTag(alertMessage: String = NFCReader.alertMessage, onTagDetected: @escaping OnTagDetected) {
       self.onTagDetected = onTagDetected
@@ -24,6 +25,7 @@ extension NFCReader {
     * NFCReader.read(tag: ...) { result in // read
     *    let data = try? result.get()
     * }
+    * - Fixme: ⚠️️ add doc
     */
    func read(tag: NFCNDEFTag, status: NFCNDEFStatus, onReadCompleted: ReadCompleted?) {
       switch status {
@@ -38,7 +40,8 @@ extension NFCReader {
       }
    }
    /**
-    * decode raw data to types
+    * Decode raw data to types
+    * - Fixme: ⚠️️ add doc
     * - Parameter readCompletion: Call a completion handler and pass the message to it. This will be useful for chaining multiple NFC tasks together.
     */
    func read(tag: NFCNDEFTag, alertMessage: String = "Tag Read") {

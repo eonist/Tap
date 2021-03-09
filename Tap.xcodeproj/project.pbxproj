@@ -15,7 +15,6 @@
 		F13A7FE925731D7100901DE2 /* NFCReader+Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A7FE825731D7100901DE2 /* NFCReader+Detection.swift */; };
 		F13A7FEB25731D9100901DE2 /* NFCReader+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A7FEA25731D9100901DE2 /* NFCReader+Delegate.swift */; };
 		F13A7FEF25731DD400901DE2 /* NFCReader+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A7FEE25731DD400901DE2 /* NFCReader+Error.swift */; };
-		F13A7FF125731DF400901DE2 /* NFCWriter+Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A7FF025731DF400901DE2 /* NFCWriter+Const.swift */; };
 		F13A7FF325731DFF00901DE2 /* NFCWriter+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A7FF225731DFF00901DE2 /* NFCWriter+Type.swift */; };
 		F13A7FF525731E1100901DE2 /* NFCWriter+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A7FF425731E1100901DE2 /* NFCWriter+Action.swift */; };
 		F13A7FF725731E8C00901DE2 /* NFCWriter+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A7FF625731E8C00901DE2 /* NFCWriter+Error.swift */; };
@@ -36,7 +35,6 @@
 		F13A7FE825731D7100901DE2 /* NFCReader+Detection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCReader+Detection.swift"; sourceTree = "<group>"; };
 		F13A7FEA25731D9100901DE2 /* NFCReader+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCReader+Delegate.swift"; sourceTree = "<group>"; };
 		F13A7FEE25731DD400901DE2 /* NFCReader+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCReader+Error.swift"; sourceTree = "<group>"; };
-		F13A7FF025731DF400901DE2 /* NFCWriter+Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCWriter+Const.swift"; sourceTree = "<group>"; };
 		F13A7FF225731DFF00901DE2 /* NFCWriter+Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCWriter+Type.swift"; sourceTree = "<group>"; };
 		F13A7FF425731E1100901DE2 /* NFCWriter+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCWriter+Action.swift"; sourceTree = "<group>"; };
 		F13A7FF625731E8C00901DE2 /* NFCWriter+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCWriter+Error.swift"; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				F13A7FDC2572DDCB00901DE2 /* NFCWriter.swift */,
 				F13A7FF225731DFF00901DE2 /* NFCWriter+Type.swift */,
 				F13A7FF425731E1100901DE2 /* NFCWriter+Action.swift */,
-				F13A7FF025731DF400901DE2 /* NFCWriter+Const.swift */,
 				F13A7FF625731E8C00901DE2 /* NFCWriter+Error.swift */,
 			);
 			path = writer;
@@ -203,7 +200,6 @@
 				F13A7FE325731CF400901DE2 /* NFCReader+Const.swift in Sources */,
 				F13A7FF325731DFF00901DE2 /* NFCWriter+Type.swift in Sources */,
 				F13A7FE725731D3800901DE2 /* NFCReader+Action.swift in Sources */,
-				F13A7FF125731DF400901DE2 /* NFCWriter+Const.swift in Sources */,
 				F13A7FEF25731DD400901DE2 /* NFCReader+Error.swift in Sources */,
 				F13A7FEB25731D9100901DE2 /* NFCReader+Delegate.swift in Sources */,
 				F13A7FF725731E8C00901DE2 /* NFCWriter+Error.swift in Sources */,

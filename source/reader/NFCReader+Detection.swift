@@ -5,6 +5,7 @@ import CoreNFC
 extension NFCReader {
    /**
     * Detect
+    * - Fixme: ⚠️️ add doc
     */
    func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
       guard let tag = tags.first, tags.count == 1 else {
