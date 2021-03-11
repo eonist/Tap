@@ -33,6 +33,7 @@ NFCWriter.shared.write(data: "Hello world".data(using: .utf8)!) { result in
 - Can be used in conjunction with bluetooth to establish BT connection without pairing etc
 
 ## Todo:
-- Add package.swift
+- Add package.swift ✅
 - Add tests
-- Add github actions
+- Add github actions 👈
+- make things public
