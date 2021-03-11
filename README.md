@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/Tap/actions/workflows/tests.yml/badge.svg)](https://github.com/sentryco/Tap/actions/workflows/tests.yml)
+
 # Tap
 Read / Write over NFC (for sharing small data-sets)
 
