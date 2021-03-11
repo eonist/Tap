@@ -1,3 +1,4 @@
+#if os(iOS)
 import Foundation
 import CoreNFC
 /**
@@ -7,3 +8,4 @@ extension NFCReader {
    typealias OnTagDetected = (Result<(tag: NFCNDEFTag, status: NFCNDEFStatus), Error>) -> Void
    typealias ReadCompleted = (Result<(Data), Error>) -> Void
 }
+#endif

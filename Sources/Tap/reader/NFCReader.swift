@@ -1,3 +1,4 @@
+#if os(iOS)
 import CoreNFC
 /**
  * NFCReader
@@ -11,3 +12,4 @@ final class NFCReader: NSObject {
    var onReadCompleted: ReadCompleted?
    var onTagDetected: OnTagDetected?
 }
+#endif

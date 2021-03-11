@@ -1,3 +1,4 @@
+#if os(iOS)
 import CoreNFC
 /**
  * NFC / NDEF Reader Session Delegate (message)
@@ -42,3 +43,5 @@ extension NFCReader: NFCNDEFReaderSessionDelegate {
       self.session = nil // To read new tags, a new session instance is required.
    }
 }
+
+#endif

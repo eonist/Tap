@@ -1,3 +1,4 @@
+#if os(iOS)
 import CoreNFC
 /**
  * NFCWriter
@@ -7,3 +8,4 @@ final class NFCWriter: NSObject {
    static let shared: NFCWriter = .init()
    var onWriteCompleted: WriteCompleted?
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 import CoreNFC
 /**
  * Detection
@@ -24,3 +25,4 @@ extension NFCReader {
       }
    }
 }
+#endif

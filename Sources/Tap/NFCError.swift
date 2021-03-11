@@ -1,3 +1,4 @@
+#if os(iOS)
 import Foundation
 
 enum NFCError: Error {
@@ -5,3 +6,4 @@ enum NFCError: Error {
    case invalidated(message: String)
    case invalidPayloadSize
 }
+#endif

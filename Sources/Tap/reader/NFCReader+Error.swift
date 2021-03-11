@@ -1,3 +1,4 @@
+#if os(iOS)
 import Foundation
 /**
  * Private
@@ -12,3 +13,4 @@ extension NFCReader {
       session?.invalidate()
    }
 }
+#endif
