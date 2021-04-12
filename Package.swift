@@ -5,21 +5,18 @@ import PackageDescription
 let package = Package(
     name: "Tap",
     products: [
-
         .library(
             name: "Tap",
-            targets: ["Tap"]),
+            targets: ["Tap"])
     ],
     dependencies: [
-
     ],
     targets: [
-       
         .target(
             name: "Tap",
             dependencies: []),
         .testTarget(
             name: "TapTests",
-            dependencies: ["Tap"]),
+            dependencies: ["Tap"])
     ]
 )

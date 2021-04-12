@@ -9,7 +9,7 @@ class ViewController: UIViewController {
       (view as? View)?.button.addTarget(self, action: #selector(buttonTouched), for: .touchUpInside)
       (view as? View)?.writebutton.addTarget(self, action: #selector(writeButtonTouched), for: .touchUpInside)
    }
-   override var prefersStatusBarHidden: Bool { return false }
+   override var prefersStatusBarHidden: Bool { false }
 }
 /**
  * Event

@@ -14,7 +14,7 @@ class View: UIView {
       let btn = UIButton(type: .system)
       btn.backgroundColor = UIColor.green
       btn.setTitle("Write", for: .normal)
-      btn.frame = CGRect(x: 0, y: 100+20, width: 100, height: 50)
+      btn.frame = CGRect(x: 0, y: 100 + 20, width: 100, height: 50)
       self.addSubview(btn)
       return btn
    }()
