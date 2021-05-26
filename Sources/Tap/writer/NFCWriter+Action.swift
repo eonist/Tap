@@ -11,6 +11,9 @@ extension NFCWriter {
     *    let data: Data? = try? result.get()
     * }
     * - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - data: - Fixme: ⚠️️ add doc
+    *   - onWriteCompleted: - Fixme: ⚠️️ add doc
     */
    func write(data: Data, onWriteCompleted: @escaping WriteCompleted) {
       self.onWriteCompleted = onWriteCompleted
@@ -22,25 +25,34 @@ extension NFCWriter {
    /**
     * Read tag
     * - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - data: - Fixme: ⚠️️ add doc
+    *   - tag: - Fixme: ⚠️️ add doc
+    *   - status: - Fixme: ⚠️️ add doc
+    *   - session: - Fixme: ⚠️️ add doc
     */
    func write(data: Data, tag: NFCNDEFTag, status: NFCNDEFStatus, session: NFCNDEFReaderSession?) {
       switch status {
       case .readWrite:
          write(data: data, tag: tag, session: session)
       case .readOnly:
-         session?.alertMessage = "Tag is not writable"
+         session?.alertMessage = "Tag is not writable" // - Fixme: ⚠️️ move to enum?
          session?.invalidate()
       case .notSupported :
-         session?.alertMessage = "Tag is not NDEF compliant."
+         session?.alertMessage = "Tag is not NDEF compliant." // - Fixme: ⚠️️ move to enum?
          session?.invalidate()
       default:
-         session?.alertMessage = "Unknown NDEF tag status."
+         session?.alertMessage = "Unknown NDEF tag status." // - Fixme: ⚠️️ move to enum?
          session?.invalidate()
       }
    }
    /**
     * write
     * - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - data: - Fixme: ⚠️️ add doc
+    *   - tag: - Fixme: ⚠️️ add doc
+    *   - session: - Fixme: ⚠️️ add doc
     */
    func write(data: Data, tag: NFCNDEFTag, session: NFCNDEFReaderSession?) {
       let alertMessage = "Successfully wrote to tag"

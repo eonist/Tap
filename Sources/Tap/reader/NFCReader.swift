@@ -2,6 +2,7 @@
 import CoreNFC
 /**
  * NFCReader
+ * - Fixme: ⚠️️ add doc
  */
 final class NFCReader: NSObject {
    static let shared: NFCReader = .init()

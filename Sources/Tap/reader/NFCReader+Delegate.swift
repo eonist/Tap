@@ -8,8 +8,8 @@ extension NFCReader: NFCNDEFReaderSessionDelegate {
     * Reads an NDEF message
     * - Note: Will be invoked when the session finds a new tag
     * - Note: Each time the reader session retrieves a new NDEF message, the session sends the message to the delegate by calling the readerSession(_:didDetectNDEFs:) method. This is the app’s opportunity to do something useful with the data. For instance, the sample app stores the message so the user can view it later.
-    * - Note: messages is an array of NFCNDEFMessages, one for each scan we perform before the NFC session becomes invalidated, though in our app, we invalidate the session automatically after the first scan. We only need to worry about one object in the array.
-    * - Note: records is an array of NFCNDEFPayloads. This is an array because NDEF cards can contain multiple payloads. For our use, we only will have one payload.
+    * - Note: Messages is an array of NFCNDEFMessages, one for each scan we perform before the NFC session becomes invalidated, though in our app, we invalidate the session automatically after the first scan. We only need to worry about one object in the array.
+    * - Note: Records is an array of NFCNDEFPayloads. This is an array because NDEF cards can contain multiple payloads. For our use, we only will have one payload.
     * - Parameters:
     *   - messages: Get an array of detected messages, each of which can contain one or more records describing a single piece of data.
     *   - session: the nfc session
@@ -26,16 +26,18 @@ extension NFCReader: NFCNDEFReaderSessionDelegate {
    /**
     * Becomes invalid due to ending the session or encountering an error
     * - Note: Will be invoked when an error has occurred or the scanning session has ended.
-    * - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - session: - Fixme: ⚠️️ add doc
+    *   - error: - Fixme: ⚠️️ add doc
     */
    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
       // Check the invalidation reason from the returned error.
       if let error = error as? NFCReaderError,
          // Show an alert when the invalidation reason is not because of a
-         // successful read during a single-tag read session, or because the
-         // user canceled a multiple-tag read session from the UI or
-         // programmatically using the invalidate method call.
-         // - Fixme: ⚠️️ use .contains here
+         // Successful read during a single-tag read session, or because the
+         // User canceled a multiple-tag read session from the UI or
+         // Programmatically using the invalidate method call.
+         // - Fixme: ⚠️️ use .contains here?
          error.code != .readerSessionInvalidationErrorFirstNDEFTagRead &&
             error.code != .readerSessionInvalidationErrorUserCanceled {
          onReadCompleted?(.failure(NFCError.invalidated(message: error.localizedDescription)))

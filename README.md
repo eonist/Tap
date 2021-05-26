@@ -13,7 +13,7 @@ NFCReader.shared.read(tag: value.tag, status: value.status) { result in // read
    let data: Data? = try? result.get()
    Swift.print("Payload:  \(String(describing: String(data: data!, encoding: .utf8)))") // Hello world
 }
-NFCWriter.shared.write(data: "Hello world".data(using: .utf8)!) { result in
+NFCWriter.shared.write(data: "Hello world".data(using: .utf8)!) { result in // write
    let data: Data? = try? result.get()
    Swift.print("data.count:  \(String(describing: data?.count))")
 }

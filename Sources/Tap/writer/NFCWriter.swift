@@ -2,6 +2,7 @@
 import CoreNFC
 /**
  * NFCWriter
+ * - Fixme: ⚠️️ add doc
  * - Fixme: ⚠️️ this class can be pure static
  */
 final class NFCWriter: NSObject {

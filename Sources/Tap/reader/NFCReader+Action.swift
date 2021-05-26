@@ -13,6 +13,9 @@ extension NFCReader {
     *    let status: NFCNDEFStatus = try? result.get().status
     * }
     * - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - alertMessage: - Fixme: ⚠️️ add doc
+    *   - onTagDetected: - Fixme: ⚠️️ add doc
     */
    func scanTag(alertMessage: String = NFCReader.alertMessage, onTagDetected: @escaping OnTagDetected) {
       self.onTagDetected = onTagDetected
@@ -27,6 +30,10 @@ extension NFCReader {
     *    let data = try? result.get()
     * }
     * - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - tag: - Fixme: ⚠️️ add doc
+    *   - status: - Fixme: ⚠️️ add doc
+    *   - onReadCompleted: Call a completion handler and pass the message to it. This will be useful for chaining multiple NFC tasks together.
     */
    func read(tag: NFCNDEFTag, status: NFCNDEFStatus, onReadCompleted: ReadCompleted?) {
       switch status {
@@ -43,7 +50,9 @@ extension NFCReader {
    /**
     * Decode raw data to types
     * - Fixme: ⚠️️ add doc
-    * - Parameter readCompletion: Call a completion handler and pass the message to it. This will be useful for chaining multiple NFC tasks together.
+    * - Parameters:
+    *   - tag: - Fixme: ⚠️️ add doc
+    *   - alertMessage: - Fixme: ⚠️️ add doc
     */
    func read(tag: NFCNDEFTag, alertMessage: String = "Tag Read") {
       tag.readNDEF { message, error in
@@ -59,5 +68,4 @@ extension NFCReader {
       }
    }
 }
-
 #endif

@@ -7,6 +7,9 @@ extension NFCReader {
    /**
     * Detect
     * - Fixme: ⚠️️ add doc
+    * - Parameters:
+    *   - session: - Fixme: ⚠️️ add doc
+    *   - tags: - Fixme: ⚠️️ add doc
     */
    func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
       guard let tag = tags.first, tags.count == 1 else {

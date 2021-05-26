@@ -3,6 +3,7 @@ import CoreNFC
 import Foundation
 /**
  * Type & const
+ * - Fixme: ⚠️️ add doc
  */
 extension NFCReader {
    static let alertMessage: String = "Hold device near to read" // "Hold your iPhone near the item to learn more about it."

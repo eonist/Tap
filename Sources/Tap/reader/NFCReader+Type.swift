@@ -3,6 +3,7 @@ import Foundation
 import CoreNFC
 /**
  * Type & const
+ * - Fixme: ⚠️️ add doc
  */
 extension NFCReader {
    typealias OnTagDetected = (Result<(tag: NFCNDEFTag, status: NFCNDEFStatus), Error>) -> Void
